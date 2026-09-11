@@ -21,10 +21,12 @@ jobs:
       run: |
         cd GyroIllusionApp_v3/GyroIllusionApp
         gradle wrapper
+        chmod +x gradlew
         ./gradlew assembleDebug --stacktrace
+      continue-on-error: false
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: app-debug
-        path: "**/app/build/outputs/apk/debug/app-debug.apk"
+        path: GyroIllusionApp_v3/GyroIllusionApp/app/build/outputs/apk/debug/app-debug.apk
